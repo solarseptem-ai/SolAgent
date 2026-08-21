@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment
+.env
+!src/backend/solagent/cli/templates/.env
+
+# Reference source (not part of SolAgent)
+opensource/
+
+# OS
+Thumbs.db
+.DS_Store

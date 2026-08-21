@@ -1,0 +1,4 @@
+- name: hello_world
+  description: A simple hello world task
+  agent: {{name}}
+  prompt: "Say hello and introduce yourself."

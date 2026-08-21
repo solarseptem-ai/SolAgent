@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SolarSeptem Agent</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="app">
+  <aside id="sidebar">
+    <div class="logo">
+      <h1>SolarSeptem</h1>
+      <span class="version">v0.1.0</span>
+    </div>
+    <nav>
+      <button class="nav-btn active" data-view="chat">Chat</button>
+      <button class="nav-btn" data-view="dashboard">Dashboard</button>
+      <button class="nav-btn" data-view="config">Config</button>
+      <button class="nav-btn" data-view="learning">Learning</button>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="status" id="status">Disconnected</div>
+    </div>
+  </aside>
+
+  <main id="main">
+    <section id="view-chat" class="view active">
+      <div class="chat-header">
+        <div class="chat-controls">
+          <select id="agent-select"><option value="">Default Agent</option></select>
+          <select id="mode-select">
+            <option value="">Default Mode</option>
+            <option value="chat">Chat</option>
+            <option value="react">ReAct</option>
+            <option value="function_call">Function Call</option>
+            <option value="plan_execute">Plan Execute</option>
+            <option value="compiler">Compiler</option>
+            <option value="reflexion">Reflexion</option>
+            <option value="code_as_action">Code as Action</option>
+          </select>
+          <select id="template-select"><option value="">No Template</option></select>
+          <label class="stream-toggle">
+            <input type="checkbox" id="stream-toggle" checked>
+            <span>Stream</span>
+          </label>
+        </div>
+      </div>
+      <div id="messages"></div>
+      <div class="chat-input">
+        <textarea id="user-input" placeholder="Type your message..." rows="2"></textarea>
+        <button id="send-btn">Send</button>
+      </div>
+    </section>
+
+    <section id="view-dashboard" class="view">
+      <h2>Dashboard</h2>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-value" id="metric-requests">0</div>
+          <div class="metric-label">Total Requests</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value" id="metric-input-tokens">0</div>
+          <div class="metric-label">Input Tokens</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value" id="metric-output-tokens">0</div>
+          <div class="metric-label">Output Tokens</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value" id="metric-providers">0</div>
+          <div class="metric-label">Active Providers</div>
+        </div>
+      </div>
+      <div class="dashboard-section">
+        <h3>Agent Modes</h3>
+        <div id="agent-modes" class="mode-list"></div>
+      </div>
+    </section>
+
+    <section id="view-config" class="view">
+      <h2>Configuration</h2>
+      <div id="config-content">Loading...</div>
+    </section>
+
+    <section id="view-learning" class="view">
+      <div class="learning-header">
+        <h2>Learning Score</h2>
+        <div class="score-display" id="learning-score">--</div>
+        <div class="score-trend" id="score-trend"></div>
+      </div>
+      <div class="score-grid">
+        <div class="score-card">
+          <span class="label">Success</span>
+          <span class="value" id="score-success">--</span>
+        </div>
+        <div class="score-card">
+          <span class="label">Tool</span>
+          <span class="value" id="score-tool">--</span>
+        </div>
+        <div class="score-card">
+          <span class="label">Token</span>
+          <span class="value" id="score-token">--</span>
+        </div>
+        <div class="score-card">
+          <span class="label">Learning</span>
+          <span class="value" id="score-learning">--</span>
+        </div>
+      </div>
+      <div class="learning-columns">
+        <div class="column">
+          <h3>Experiences (<span id="exp-count">0</span>)</h3>
+          <div id="exp-tags"></div>
+          <div id="exp-list" class="list"></div>
+        </div>
+        <div class="column">
+          <h3>Strategies (<span id="strat-count">0</span>)</h3>
+          <div id="strat-status"></div>
+          <div id="strat-list" class="list"></div>
+        </div>
+      </div>
+      <div class="reflect-section">
+        <span id="reflect-info">Next reflection: --</span>
+        <button id="reflect-btn" onclick="triggerReflection()">Trigger Reflection Now</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "{{name}}"
+version = "0.1.0"
+description = "AI agent project powered by SolarSeptem Agent"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.12"
+dependencies = [
+    "solagent>=0.1.0",
+]

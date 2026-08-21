@@ -1,0 +1,6 @@
+- name: {{name}}
+  model: gpt-4o
+  mode: react
+  max_iterations: 10
+  tools: []
+  temperature: 0.7

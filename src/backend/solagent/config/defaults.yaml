@@ -1,0 +1,13 @@
+# solagent default configuration
+default_model: gpt-4o
+default_mode: react
+
+log:
+  level: INFO
+  format: json
+
+providers: []
+agents: []
+mcp_servers: []
+tools: []
+skills: []
